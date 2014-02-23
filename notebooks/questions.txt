@@ -1,0 +1,22 @@
+4/
+
+do spočtene pásove struktury Na naznačit pásy prázdné BCC mrize s izotropni efektivni hmotnosti m
+jak vysoko nad dnem vodivostniho pasu je v tomto modelu fermiho energie
+proveřit že Na je nejjednodušši z jednoduchých kovu
+
+-------------------------------------------------------------------
+
+Computed band structure to suggest bands on the empty BCC lattice with isotropic effective mass m
+how high above the bottom of the conduction band in this model the Fermi energy
+Check that Na is the simplest of the simple metal
+
+5/
+
+Do spočtených hustot stavů Si, Ge, a Sn, naznačit hustotu stavů prázdné diamantové mříže (s izotropní efektivní hmotností m a nejmenší energií E=-13). Jaká je v tomto modelu Fermiho energie?
+
+-------------------------------------------------------------------------------
+
+Do computed densities of states Si, Ge, and Sn, indicate the density of states of the empty diamond lattice (with isotropic effective mass m and the smallest energy E = -13). What is in this model the Fermi energy? 
+
+
+íýůřžčšá
