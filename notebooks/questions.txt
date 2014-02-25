@@ -18,5 +18,21 @@ Do spočtených hustot stavů Si, Ge, a Sn, naznačit hustotu stavů prázdné d
 
 Do computed densities of states Si, Ge, and Sn, indicate the density of states of the empty diamond lattice (with isotropic effective mass m and the smallest energy E = -13). What is in this model the Fermi energy? 
 
+6/
 
-íýůřžčšá
+Cyklotronová rezonance elektronů a děr
+
+Rozšířit klasický popis cyklotronové rezonance na anizotropní
+vodivostní pásy s disperzní relací
+
+kde m a m jsou po 
+
+-------------------------------------------------------------------------------
+
+Cyclotron resonance of electrons and holes
+
+Extend the classic description of cyclotron resonance to the
+anisotropic conduction bands with dispersion relations
+
+
+íýůřžčšáěé
