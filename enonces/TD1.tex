@@ -1,0 +1,83 @@
+\input{header.tex}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{color} 
+\usepackage{siunitx}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage[backend=biber,backref=true,style=unsrt,
+style=numeric-comp,block=ragged,firstinits=true]{biblatex}
+\addbibresource{ref-notes.bib}
+\bibliography{ref-notes}
+\graphicspath{{plot_synthesis/} {Feynman/}}
+
+\newcommand{\mastersig}{\ensuremath{\Im{\widehat{\Sigma}^{A,B}(k,E)}}\xspace}
+\newcommand{\chiqw}{\ensuremath{\Im{\chi}(q,\omega)}\xspace}
+
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\title{Representation of the $C_{3v}$ group}
+%\subtitle{After FC Zhang, C Gros, T M Rice and H Shiba,
+%Supercond. Sci. Technol. 1 (1988) 36-46}
+%\author{}
+\date{March 2014}
+
+\begin{document}
+
+\maketitle
+
+\setlength{\unitlength}{1cm}
+%\advance\textwidth by 3cm
+%\advance\hoffset by -1.5cm 
+\advance\textheight by 1cm
+\advance\voffset by -1.5cm
+\setmarginsrb{3cm}{0.5cm}{1.5cm}{1cm}{1cm}{1cm}{1cm}{1cm}
+%\setlength{\parindent}{0cm}%
+
+\pagestyle{plain}
+
+\section{Introduction}
+
+The group of the permutation of 3 objects, designated by $P(3)$, is isomorphic to the group
+of symmetries of the equilateral triangle, called $C_{3v}$.
+
+The elements of the corresponding groups are:
+
+\subsection{P(3)}
+
+
+
+\begin{itemize}
+\item Self-consistent resolution of the spin-fermion model equations.
+\item Two-band framework.
+\item Two-branch parametrization of \chiqw
+\item Constraint C1: Fermi surface is supposed to be known, and kept fixed
+  during iterations.
+\item Constraint C2: a broadening factor $\delta$ is added to the diagonal
+  part of the self-energy, $\delta=\text{\SI{30}{\milli\electronvolt}}$.
+\item Constraint C3: the offdiagonal term of the Nambu matrix is assumed
+  to be known, and kept equal to $\phi(k,\omega) = \Re{Z_{A, B}}(k,
+  \omega=0)\Delta_k$ with $\Delta_k = \Delta_0(\cos k_x- \cos k_y$
+  and $\Delta_0=\text{\SI{30}{\milli\electronvolt}}$.
+\end{itemize}
+
+\section{Relaxation of the constraints}
+
+\subsection{Broadening factor $\delta$}
+
+\end{document}
