@@ -1,0 +1,76 @@
+\input{header.tex}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{color} 
+\usepackage{siunitx}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[backend=biber,backref=true,style=unsrt,
+style=numeric-comp,block=ragged,firstinits=true]{biblatex}
+\addbibresource{ref-notes.bib}
+\bibliography{ref-notes}
+\graphicspath{{plot_synthesis/} {Feynman/}}
+
+\newcommand{\mastersig}{\ensuremath{\Im{\widehat{\Sigma}^{A,B}(k,E)}}\xspace}
+\newcommand{\chiqw}{\ensuremath{\Im{\chi}(q,\omega)}\xspace}
+
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+
+\title{Condensed Matter II}
+\subtitle{Problem set \#4}
+%\author{}
+\date{Spring 2014}
+
+\begin{document}
+
+\maketitle
+
+\setlength{\unitlength}{1cm}
+%\advance\textwidth by 3cm
+%\advance\hoffset by -1.5cm 
+\advance\textheight by 1cm
+\advance\voffset by -1.5cm
+\setmarginsrb{3cm}{0.5cm}{1.5cm}{1cm}{1cm}{1cm}{1cm}{1cm}
+%\setlength{\parindent}{0cm}%
+
+\pagestyle{plain}
+
+\section{Free electrons in Na}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=14cm]{NA_bands.pdf}
+  \caption{Energy bands in sodium along symmetry directions. Chang
+    and Callaway, PRB 11, 1324 (1975) \label{fig:bands}}
+\end{figure}
+
+\begin{enumerate}[label=(\roman*)]
+\item With the help of the computed band structure of Na in Fig.~\ref{fig:bands}, suggest what the structure of the empty BCC lattice must look
+  like (assuming isotropic effective mass $m_0$).
+\item How high above the bottom of the conduction band is the Fermi
+  energy located in this model?
+\item justify that Na be considered ``the simplest of the simple metals''.
+\end{enumerate}
+
+\section{Density of states of Si, Ge, Sn}
+
+%\section
+
+\end{document}
