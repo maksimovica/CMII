@@ -1,0 +1,115 @@
+\input{header.tex}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{color} 
+\usepackage{siunitx}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[backend=biber,backref=true,style=unsrt,
+style=numeric-comp,block=ragged,firstinits=true]{biblatex}
+\addbibresource{ref-notes.bib}
+\bibliography{ref-notes}
+\graphicspath{{plot_synthesis/} {Feynman/}}
+
+\newcommand{\mastersig}{\ensuremath{\Im{\widehat{\Sigma}^{A,B}(k,E)}}\xspace}
+\newcommand{\chiqw}{\ensuremath{\Im{\chi}(q,\omega)}\xspace}
+
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+
+\title{Condensed Matter II}
+\subtitle{Problem set \#5}
+%\author{}
+\date{Spring 2014}
+
+\begin{document}
+
+\maketitle
+
+\setlength{\unitlength}{1cm}
+%\advance\textwidth by 3cm
+%\advance\hoffset by -1.5cm 
+\advance\textheight by 1cm
+\advance\voffset by -1.5cm
+\setmarginsrb{3cm}{0.5cm}{1.5cm}{1cm}{1cm}{1cm}{1cm}{1cm}
+%\setlength{\parindent}{0cm}%
+
+\pagestyle{plain}
+
+\section{Density of states of Si, Ge, Sn}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=9cm]{DOS_SiGeSn.pdf}
+  \caption{Calculated electronic densities of states compared to
+    experiment for Si, Ge, and $\alpha$-Sn. The experimental results
+    for Si and Ge are from Pollak et al., PRL 29, 1103 (1973) and
+    Grobman et al., PRL 29, 1508 (1972) respectively. In the case of Si, two results are
+    displayed: nonlocal pseudopotential (solid line) and local
+    pseudopotential (dashed line). R. Chelikowsky et al., PRB 14, 556 (1976)\label{fig:dos}}
+\end{figure}
+
+
+Based on the density of states of Si, Ge, and $\alpha$-Sn displayed
+in Fig~\ref{fig:dos}, comment on the density of states of the empty
+diamond lattice (assuming isotropic effective mass $m_0$ and lowest
+energy point of the density of states at $E_0$=-13eV). Where is the
+Fermi energy located in this model?
+
+\section{Study of ReO$_3$}
+
+The electronic structure of Re is $4f^{14}5d^56s^2$, that of O is
+$2s^22p^4$. The band structure of ReO$_3$ is displayed in
+Fig~\ref{fig:band_reo3}, and its unit cell and Brillouin zone are
+displayed in Fig~\ref{fig:BZreo3}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16cm]{reo3_bands_v2.pdf}
+  \caption{Tight-binding energy bands for ReO$_3$ obtained by fitting
+    APW results at symmetry points.  Mattheiss, Physical Review
+    181, 987 (1969)\label{fig:band_reo3}}
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=12cm]{reo3bz.pdf}
+  \caption{(a) Unit cell for the ReO$_3$ structure. (b) Brillouin zone
+    for the simple cubic bravais lattice. Mattheiss, Physical Review
+    181, 987 (1969)\label{fig:BZreo3}}
+\end{figure}
+
+\begin{enumerate}[label=(\roman*)]
+\item How many atoms per unit cell does the structure count?
+\item Which are the Re energy bands, which are the O energy bands?
+\item Is ReO$_3$ a metal, or a semiconductor?
+\item Identify the d-bands on Fig~\ref{fig:band_reo3}. To which of the Re
+  or O atom are they associated? Where are the other atom's d-bands
+  located?
+\item Identify the location of the carrier pockets, and qualitatively assess the
+  effective masses of the carriers.
+\item Assess the number of electrons per carrier pocket.
+\item Where does the lowest energy optical transition occur? Comment
+  on its expected strength.
+\end{enumerate}
+
+%\section
+
+\end{document}
