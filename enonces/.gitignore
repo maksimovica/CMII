@@ -23,3 +23,8 @@
 *.synctex.gz
 *.xml
 *.bcf
+*.tex~
+*.log
+*.idx
+*.aux
+*.*~
