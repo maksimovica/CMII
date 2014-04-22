@@ -32,7 +32,6 @@ style=numeric-comp,block=ragged,firstinits=true]{biblatex}
     \vskip0.5em}%
 }
 
-
 \title{Condensed Matter II}
 \subtitle{Problem set \#6}
 %\author{}
@@ -54,34 +53,36 @@ style=numeric-comp,block=ragged,firstinits=true]{biblatex}
 
 \section{Cyclotron resonance of electrons and holes}
 
-Extend the description of cyclotron resonance to anisotropic band
-structure with the following dispersion relation
+In this section, we extend the description of cyclotron resonance to an anisotropic band
+structure with the following dispersion relation, with $m_l$ and $m_t$
+the longitudinal and transversal effective masses. 
 
-\[ E(k) = \dfrac{\hbar}{2}\biggl( \dfrac{k_x^2+k_y^2}{m_t} + \dfrac{k_z^2}{m_l}\biggr) \]
+\[ E(\vec{k}) = \dfrac{\hbar^2}{2}\biggl( \dfrac{k_x^2+k_y^2}{m_t} + \dfrac{k_z^2}{m_l}\biggr) \]
 
-where $m)l$ and $m_t$ are the longitudinal and transversal effective
-masses.
-
-Hint: work in the semiclassical framework, and look for solutions of
-the equation of motion 
-
-\[ \dfrac{dP}{dt} = e \biggl( E_0e^{i\omega t}+\dfrac{v x
-  H}{c}\biggr)\]
-\[ P = p - e \dfrac{A}{c}\]
-
-where $A$ is the potential vector. The effective Hamiltonian is given
-by 
+The magnetic field
+is assumed to lie in the $(x,z)$ plane, making an angle $\theta$ with the longitudinal axis:
+\[ \vec{H} = H_0 (\sin \theta, 0, \cos \theta)\]
 
 \begin{enumerate}[label=(\roman*)]
-\item How many atoms per unit cell does the structure count?
-\item Which are the Re energy bands, which are the O energy bands?
-\item Is ReO$_3$ a metal, or a semiconductor?
-\item Identify the location of the carrier pockets, and qualitatively assess the
-  effective masses of the carriers.
-\item Assess the number of electrons per carrier pocket.
-\item Where does the lowest energy optical transition occur? Comment
-  on its expected strength.
+\item Working in the semiclassical framework, establish the equation
+  of motion obeyed by the particles, assuming that the fields evolve
+  as $\exp{(i\omega t)}$.
+\item Give the expression of the effective Hamiltonian, as a function
+  of $m_l$ and $m_t$.
+\item Provide the expression of the velocity vector, used in (i).
+\item Deduce the value of $\omega$ which allows a finite value of
+  $\vec{P}$ to exist in the material.
+\item Discuss how this could be used in order to determine $m_l$ and
+  $m_t$ experimentally.
 \end{enumerate}
+
+\section{Donor states in III-V compounds}
+
+In the litterature, look for the value of the effective mass of electrons and for the
+value of the
+dielectric constant of GaAs and InSb. Use such values in
+the hydrogenic donor state model, and compute the ionization energy of
+the ground state in this model. Compare with experimental data.
 
 %\section
 
