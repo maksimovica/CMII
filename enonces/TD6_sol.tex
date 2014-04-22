@@ -1,0 +1,85 @@
+\input{header.tex}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{color} 
+\usepackage{siunitx}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[backend=biber,backref=true,style=unsrt,
+style=numeric-comp,block=ragged,firstinits=true]{biblatex}
+\addbibresource{ref-notes.bib}
+\bibliography{ref-notes}
+\graphicspath{{plot_synthesis/} {Feynman/}}
+
+\newcommand{\mastersig}{\ensuremath{\Im{\widehat{\Sigma}^{A,B}(k,E)}}\xspace}
+\newcommand{\chiqw}{\ensuremath{\Im{\chi}(q,\omega)}\xspace}
+
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\title{Condensed Matter II}
+\subtitle{Problem set \#6}
+%\author{}
+\date{Spring 2014}
+
+\begin{document}
+
+\maketitle
+
+\setlength{\unitlength}{1cm}
+%\advance\textwidth by 3cm
+%\advance\hoffset by -1.5cm 
+\advance\textheight by 1cm
+\advance\voffset by -1.5cm
+\setmarginsrb{3cm}{0.5cm}{1.5cm}{1cm}{1cm}{1cm}{1cm}{1cm}
+%\setlength{\parindent}{0cm}%
+
+\pagestyle{plain}
+
+\section{Cyclotron resonance of electrons and holes}
+
+In this section, we extend the description of cyclotron resonance to an anisotropic band
+structure with the following dispersion relation, with $m_l$ and $m_t$
+the longitudinal and transversal effective masses. 
+
+\[ E(\vec{k}) = \dfrac{\hbar^2}{2}\biggl( \dfrac{k_x^2+k_y^2}{m_t} + \dfrac{k_z^2}{m_l}\biggr) \]
+
+The magnetic field
+is assumed to lie in the $(x,z)$ plane, making an angle $\theta$ with the longitudinal axis:
+\[ \vec{H} = H_0 (\sin \theta, 0, \cos \theta)\]
+
+\begin{enumerate}[label=(\roman*)]
+\item working in the semiclassical framework, we look for solutions of
+the equation of motion 
+
+\[ \dfrac{d\vec{P}}{dt} = e \biggl( \vec{E_0}e^{i\omega t}+\dfrac{\vec{v} \times
+  \vec{H}}{c}\biggr)\]
+\[ \vec{P} = \vec{p} - e \dfrac{\vec{A}}{c}\] where $\vec{A}$ is the potential vector.
+\item The effective Hamiltonian is given by 
+\[ H(\vec{P}) = \dfrac{1}{2} \biggl( \dfrac{P_x^2+P_y^2}{m_t} +
+\dfrac{P_z^2}{m_l} \biggr)\]
+\item The velocity vector is given by
+\[ \vec{v} = \nabla_{\vec{P}} H(\vec{P}) = \biggl(\dfrac{P_x}{m_t}, \dfrac{P_y}{m_t}, \dfrac{P_z}{m_l}\biggr)\]
+\item The magnetic field is assumed to lie in the $(x,z)$ plane, making an angle $\theta$
+with the longitudinal axis:
+\[ \vec{H} = H_0 (\sin \theta, 0, \cos \theta)\]
+\end{enumerate}
+
+%\section
+
+\end{document}
