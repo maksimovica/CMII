@@ -1,0 +1,515 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{DOS\_Si\_Ge\_Sn}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+
+    \subsubsection{\emph{From the computed densities of states of Si, Ge, and Sn, indicate
+the density of states of the empty diamond lattice (with isotropic
+effective mass $m_0$ and lowest energy $E_0 = -13\text{eV}$). What is
+the Fermi energy in this model? }}
+
+
+    The outer electronic structures of Si, Ge, and Sn are similar:
+$ns^2np^2$, with n=3, 4, 5 respectively, which explains the similarity
+in the shape of the DOS for those three elements.
+
+In the case of free electrons in a 3D lattice, within the Sommerfeld
+theory of metals, the DOS is given by
+$g(\epsilon)=\theta(\epsilon) \cdot \dfrac{m}{\hbar^3 \pi^2}\sqrt{2m_0\epsilon}=\dfrac{3}{2} \theta(\epsilon) \cdot \dfrac{n}{\epsilon_F}\sqrt{\dfrac{\epsilon}{\epsilon_F}}$.
+Such a square root profile for the DOS is only met in reality if the
+system is very close to the free electron approximation.
+
+For semi conductors, such expression may be generalised to the bottom of
+the conduction band and the top of the valence band as follows:
+
+$g_c(E)dE = \dfrac{4\pi}{\hbar^3}(2m_n)^{3/2}\sqrt{E-E_c}$ and
+$g_v(E)dE = \dfrac{4\pi}{\hbar^3}(2m_p)^{3/2}\sqrt{E_v-E}$ where $m_n$
+and $m_p$ are the DOS effective masses, computed in a way such such as
+to take properly into account the shape and (an)isotropy of the
+hole/electron pockets at the extremum of the considered band.
+
+The presence of a finite potential lifts accidental degeneracies and
+splits peaks in the DOS, which would in the free case occur in areas
+where the slope of the band structure is small, at the zone boundaries,
+and at the $\Gamma$ point. In this more general case, the DOS is
+directly related to the band structure via
+$g_n(\epsilon) = \int_{S_n(\epsilon)} \dfrac{dS}{4\pi^3}\dfrac{1}{|\nabla \epsilon_n(k)|}$.
+Note that at $k$ such that $\nabla \epsilon_n(k)=0$, we will observe Van
+Hove singularities. The empty diamond lattice structure (fcc) is
+therefore expected to exhibit a structure similar to the figures,
+considering that some double peaks, split by the effect of the finite
+potential, should be merged.
+
+The Fermi energy may be deduced from the difference between the
+experimental and the theoretical curves: The theoretical curves display
+both the valence and conduction bands, while the experimental data only
+show the occupied bands, i.e.~the valence bands $s^2p^2$. This fact is
+more clearly expressed by noting that the real DOS is
+$g(\epsilon) \cdot f(\epsilon)$ where
+$f(\epsilon)=\dfrac{1}{e^{(\epsilon-\epsilon_F)/k_B T}+1}$. The factor
+$f(\epsilon)$ goes rapidly from 1 to 0 when $\epsilon$ reaches
+$\epsilon_F$, causing the conduction band to be empty, and not visible
+in the experimental data. In the provided figures,
+$\epsilon_F \simeq 0$eV.
+
+ref: Ashcroft, Mermin, p44-Eq2.61, pp 143ff-Eq. 8.63
+
+    The following computations use the GPAW code available at
+https://wiki.fysik.dtu.dk/gpaw/index.html . You can also get an online
+version of this document at
+
+http://nbviewer.ipython.org/urls/raw.githubusercontent.com/dombrno/CMII/master/notebooks/DOS\_Si\_Ge\_Sn.ipynb?create=1
+
+and copy/paste/modify the code for your own calculations.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
+\end{Verbatim}
+
+
+    \section{Si}
+
+
+    Si (14) structure: {[}Ne{]}$3s^2 3p^2$
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}29}]:} \PY{k+kn}{import} \PY{n+nn}{pickle}
+         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+         \PY{k+kn}{from} \PY{n+nn}{ase.lattice} \PY{k+kn}{import} \PY{n}{bulk}
+         \PY{k+kn}{from} \PY{n+nn}{gpaw} \PY{k+kn}{import} \PY{n}{GPAW}\PY{p}{,} \PY{n}{PW}\PY{p}{,} \PY{n}{FermiDirac}
+         \PY{k+kn}{from} \PY{n+nn}{ase.dft.kpoints} \PY{k+kn}{import} \PY{n}{ibz\PYZus{}points}\PY{p}{,} \PY{n}{get\PYZus{}bandpath}
+         
+         \PY{c}{\PYZsh{} Perform standard ground state calculation (with plane wave basis)}
+         \PY{n}{si} \PY{o}{=} \PY{n}{bulk}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Si}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{diamond}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mf}{5.43}\PY{p}{)}
+         \PY{n}{calc} \PY{o}{=} \PY{n}{GPAW}\PY{p}{(}\PY{n}{mode}\PY{o}{=}\PY{n}{PW}\PY{p}{(}\PY{l+m+mi}{200}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{xc}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{PBE}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{kpts}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{occupations}\PY{o}{=}\PY{n}{FermiDirac}\PY{p}{(}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{txt}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Si\PYZus{}gs.txt}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{si}\PY{o}{.}\PY{n}{set\PYZus{}calculator}\PY{p}{(}\PY{n}{calc}\PY{p}{)}
+         \PY{n}{si}\PY{o}{.}\PY{n}{get\PYZus{}potential\PYZus{}energy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Si\PYZus{}gs.gpw}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}30}]:} \PY{c}{\PYZsh{} Restart from ground state and obtain Fermi level}
+         \PY{n}{calc} \PY{o}{=} \PY{n}{GPAW}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Si\PYZus{}gs.gpw}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{txt}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}
+                     \PY{n}{fixdensity}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,}
+                     \PY{n}{eigensolver}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{cg}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{usesymm}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}
+                     \PY{n}{convergence}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{bands}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+m+mi}{7}\PY{p}{\PYZcb{}}\PY{p}{)}
+         \PY{n}{ef} \PY{o}{=} \PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}fermi\PYZus{}level}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{} Use ase.dft module for obtaining k\PYZhy{}points along high symmetry directions}
+         \PY{n}{points} \PY{o}{=} \PY{n}{ibz\PYZus{}points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{fcc}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{G} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Gamma}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{X} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{X}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{W} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{K} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{K}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{L} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{L}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{kpts}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{n}{X} \PY{o}{=} \PY{n}{get\PYZus{}bandpath}\PY{p}{(}\PY{p}{[}\PY{n}{W}\PY{p}{,} \PY{n}{L}\PY{p}{,} \PY{n}{G}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{W}\PY{p}{,} \PY{n}{K}\PY{p}{]}\PY{p}{,} \PY{n}{calc}\PY{o}{.}\PY{n}{atoms}\PY{o}{.}\PY{n}{cell}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{kpts}\PY{o}{=}\PY{n}{kpts}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}potential\PYZus{}energy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{e\PYZus{}kn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}eigenvalues}\PY{p}{(}\PY{n}{k}\PY{p}{)} \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{kpts}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+         \PY{n}{e\PYZus{}kn} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n}{ef}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}31}]:} \PY{c}{\PYZsh{} Plot the band structure}
+         \PY{c}{\PYZsh{}import matplotlib}
+         \PY{c}{\PYZsh{}matplotlib.use(\PYZsq{}Agg\PYZsq{})}
+         \PY{c}{\PYZsh{}matplotlib.rc(\PYZsq{}text\PYZsq{}, usetex=True)}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+         
+         \PY{n}{point\PYZus{}names} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{L}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZbs{}}\PY{l+s}{Gamma}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{X}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{K}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         
+         \PY{n}{emin} \PY{o}{=} \PY{n}{e\PYZus{}kn}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}
+         \PY{n}{emax} \PY{o}{=} \PY{n}{e\PYZus{}kn}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)} \PY{o}{+} \PY{l+m+mi}{1}
+         
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+         \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{7}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{e\PYZus{}kn}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{n}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{for} \PY{n}{p} \PY{o+ow}{in} \PY{n}{X}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{n}{p}\PY{p}{,} \PY{n}{p}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{emin}\PY{p}{,} \PY{n}{emax}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{X}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{p}{[}\PY{l+s}{r\PYZsq{}}\PY{l+s}{\PYZdl{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdl{}}\PY{l+s}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{n} \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n}{point\PYZus{}names}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{n}{xmin}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{xmax}\PY{o}{=}\PY{n}{X}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{ymin}\PY{o}{=}\PY{n}{emin}\PY{p}{,} \PY{n}{ymax}\PY{o}{=}\PY{n}{emax}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}vector}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{r\PYZsq{}}\PY{l+s}{E \PYZhy{} \PYZdl{}E\PYZus{}F\PYZdl{} (eV)}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Bandstructure of Silicon}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{bandstructure.pdf}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DOS_Si_Ge_Sn_files/DOS_Si_Ge_Sn_8_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+    \begin{verbatim}
+<matplotlib.figure.Figure at 0x5d19e10>
+    \end{verbatim}
+
+    
+
+    \section{Ge}
+
+
+    Ge (32) structure: {[}Ar{]}$3d^{10}4s^24p^2$
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}32}]:} \PY{c}{\PYZsh{} Perform standard ground state calculation (with plane wave basis)}
+         \PY{n}{si} \PY{o}{=} \PY{n}{bulk}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Ge}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{diamond}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mf}{5.64}\PY{p}{)}
+         \PY{n}{calc} \PY{o}{=} \PY{n}{GPAW}\PY{p}{(}\PY{n}{mode}\PY{o}{=}\PY{n}{PW}\PY{p}{(}\PY{l+m+mi}{200}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{xc}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{PBE}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{kpts}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{occupations}\PY{o}{=}\PY{n}{FermiDirac}\PY{p}{(}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{txt}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Ge\PYZus{}gs.txt}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{si}\PY{o}{.}\PY{n}{set\PYZus{}calculator}\PY{p}{(}\PY{n}{calc}\PY{p}{)}
+         \PY{n}{si}\PY{o}{.}\PY{n}{get\PYZus{}potential\PYZus{}energy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Ge\PYZus{}gs.gpw}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{c}{\PYZsh{} Restart from ground state and obtain Fermi level}
+         \PY{n}{calc} \PY{o}{=} \PY{n}{GPAW}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Ge\PYZus{}gs.gpw}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{txt}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}
+                     \PY{n}{fixdensity}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,}
+                     \PY{n}{eigensolver}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{cg}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{usesymm}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}
+                     \PY{n}{convergence}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{bands}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{occupied}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}\PY{p}{)}
+         \PY{n}{ef} \PY{o}{=} \PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}fermi\PYZus{}level}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{} Use ase.dft module for obtaining k\PYZhy{}points along high symmetry directions}
+         \PY{n}{points} \PY{o}{=} \PY{n}{ibz\PYZus{}points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{fcc}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{G} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Gamma}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{X} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{X}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{W} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{K} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{K}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{L} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{L}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{kpts}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{n}{X} \PY{o}{=} \PY{n}{get\PYZus{}bandpath}\PY{p}{(}\PY{p}{[}\PY{n}{W}\PY{p}{,} \PY{n}{L}\PY{p}{,} \PY{n}{G}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{W}\PY{p}{,} \PY{n}{K}\PY{p}{]}\PY{p}{,} \PY{n}{calc}\PY{o}{.}\PY{n}{atoms}\PY{o}{.}\PY{n}{cell}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{kpts}\PY{o}{=}\PY{n}{kpts}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}potential\PYZus{}energy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{e\PYZus{}kn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}eigenvalues}\PY{p}{(}\PY{n}{k}\PY{p}{)} \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{kpts}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+         \PY{n}{e\PYZus{}kn} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n}{ef}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{c}{\PYZsh{} Plot the band structure}
+         \PY{n}{point\PYZus{}names} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{L}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZbs{}}\PY{l+s}{Gamma}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{X}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{K}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         
+         \PY{n}{emin} \PY{o}{=} \PY{n}{e\PYZus{}kn}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}
+         \PY{n}{emax} \PY{o}{=} \PY{n}{e\PYZus{}kn}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)} \PY{o}{+} \PY{l+m+mi}{1}
+         
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+         \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{7}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{e\PYZus{}kn}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{n}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{for} \PY{n}{p} \PY{o+ow}{in} \PY{n}{X}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{n}{p}\PY{p}{,} \PY{n}{p}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{emin}\PY{p}{,} \PY{n}{emax}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{X}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{p}{[}\PY{l+s}{r\PYZsq{}}\PY{l+s}{\PYZdl{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdl{}}\PY{l+s}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{n} \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n}{point\PYZus{}names}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{n}{xmin}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{xmax}\PY{o}{=}\PY{n}{X}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{ymin}\PY{o}{=}\PY{n}{emin}\PY{p}{,} \PY{n}{ymax}\PY{o}{=}\PY{n}{emax}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}vector}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{r\PYZsq{}}\PY{l+s}{E \PYZhy{} \PYZdl{}E\PYZus{}F\PYZdl{} (eV)}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Bandstructure of Ge}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Ge\PYZus{}bandstructure.pdf}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DOS_Si_Ge_Sn_files/DOS_Si_Ge_Sn_13_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \section{Sn}
+
+
+    Sn (50) structure: {[}Kr{]}$4d^{10} 5s^2 5p^2$
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}75}]:} \PY{c}{\PYZsh{} Perform standard ground state calculation (with plane wave basis)}
+         \PY{n}{si} \PY{o}{=} \PY{n}{bulk}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Sn}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{diamond}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+m+mf}{6.48}\PY{p}{)}
+         \PY{n}{calc} \PY{o}{=} \PY{n}{GPAW}\PY{p}{(}\PY{n}{mode}\PY{o}{=}\PY{n}{PW}\PY{p}{(}\PY{l+m+mi}{200}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{xc}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{PBE}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{kpts}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{occupations}\PY{o}{=}\PY{n}{FermiDirac}\PY{p}{(}\PY{l+m+mf}{0.01}\PY{p}{)}\PY{p}{,}
+                     \PY{n}{txt}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Sn\PYZus{}gs.txt}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{si}\PY{o}{.}\PY{n}{set\PYZus{}calculator}\PY{p}{(}\PY{n}{calc}\PY{p}{)}
+         \PY{n}{si}\PY{o}{.}\PY{n}{get\PYZus{}potential\PYZus{}energy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Sn\PYZus{}gs.gpw}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}76}]:} \PY{c}{\PYZsh{} Restart from ground state and obtain Fermi level}
+         \PY{n}{calc} \PY{o}{=} \PY{n}{GPAW}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Sn\PYZus{}gs.gpw}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{txt}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}
+                     \PY{n}{fixdensity}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,}
+                     \PY{n}{eigensolver}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{cg}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                     \PY{n}{usesymm}\PY{o}{=}\PY{n+nb+bp}{None}\PY{p}{,}
+                     \PY{n}{convergence}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s}{\PYZsq{}}\PY{l+s}{bands}\PY{l+s}{\PYZsq{}}\PY{p}{:} \PY{l+s}{\PYZsq{}}\PY{l+s}{occupied}\PY{l+s}{\PYZsq{}}\PY{p}{\PYZcb{}}\PY{p}{)}
+         \PY{n}{ef} \PY{o}{=} \PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}fermi\PYZus{}level}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{} Use ase.dft module for obtaining k\PYZhy{}points along high symmetry directions}
+         \PY{n}{points} \PY{o}{=} \PY{n}{ibz\PYZus{}points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{fcc}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{G} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Gamma}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{X} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{X}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{W} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{K} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{K}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{L} \PY{o}{=} \PY{n}{points}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{L}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{kpts}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{n}{X} \PY{o}{=} \PY{n}{get\PYZus{}bandpath}\PY{p}{(}\PY{p}{[}\PY{n}{W}\PY{p}{,} \PY{n}{L}\PY{p}{,} \PY{n}{G}\PY{p}{,} \PY{n}{X}\PY{p}{,} \PY{n}{W}\PY{p}{,} \PY{n}{K}\PY{p}{]}\PY{p}{,} \PY{n}{calc}\PY{o}{.}\PY{n}{atoms}\PY{o}{.}\PY{n}{cell}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{kpts}\PY{o}{=}\PY{n}{kpts}\PY{p}{)}
+         \PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}potential\PYZus{}energy}\PY{p}{(}\PY{p}{)}
+         \PY{n}{e\PYZus{}kn} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{calc}\PY{o}{.}\PY{n}{get\PYZus{}eigenvalues}\PY{p}{(}\PY{n}{k}\PY{p}{)} \PY{k}{for} \PY{n}{k} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{kpts}\PY{p}{)}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+         \PY{n}{e\PYZus{}kn} \PY{o}{\PYZhy{}}\PY{o}{=} \PY{n}{ef}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}78}]:} \PY{c}{\PYZsh{} Plot the band structure}
+         \PY{n}{point\PYZus{}names} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{L}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZbs{}}\PY{l+s}{Gamma}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{X}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{W}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{K}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         \PY{n}{taille} \PY{o}{=} \PY{n}{e\PYZus{}kn}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+         \PY{n}{emin} \PY{o}{=} \PY{n}{e\PYZus{}kn}\PY{o}{.}\PY{n}{min}\PY{p}{(}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}
+         \PY{n}{emin} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{12}
+         \PY{n}{emax} \PY{o}{=} \PY{n}{e\PYZus{}kn}\PY{p}{[}\PY{p}{:}\PY{p}{,}\PY{p}{:}\PY{p}{]}\PY{o}{.}\PY{n}{max}\PY{p}{(}\PY{p}{)} \PY{o}{+} \PY{l+m+mi}{1}
+         
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+         \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{taille}\PY{p}{)}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{e\PYZus{}kn}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{n}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{k}{for} \PY{n}{p} \PY{o+ow}{in} \PY{n}{X}\PY{p}{:}
+             \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{n}{p}\PY{p}{,} \PY{n}{p}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{emin}\PY{p}{,} \PY{n}{emax}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{X}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xticks}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{p}{[}\PY{l+s}{r\PYZsq{}}\PY{l+s}{\PYZdl{}}\PY{l+s+si}{\PYZpc{}s}\PY{l+s}{\PYZdl{}}\PY{l+s}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{n}{n} \PY{k}{for} \PY{n}{n} \PY{o+ow}{in} \PY{n}{point\PYZus{}names}\PY{p}{]}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{axis}\PY{p}{(}\PY{n}{xmin}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{xmax}\PY{o}{=}\PY{n}{X}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{ymin}\PY{o}{=}\PY{n}{emin}\PY{p}{,} \PY{n}{ymax}\PY{o}{=}\PY{n}{emax}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{k\PYZhy{}vector}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{r\PYZsq{}}\PY{l+s}{E \PYZhy{} \PYZdl{}E\PYZus{}F\PYZdl{} (eV)}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Bandstructure of Sn}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{savefig}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Sn\PYZus{}bandstructure.pdf}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{DOS_Si_Ge_Sn_files/DOS_Si_Ge_Sn_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    % Add a bibliography block to the postdoc    
+    \end{document}
