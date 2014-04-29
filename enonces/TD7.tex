@@ -1,0 +1,129 @@
+\input{header.tex}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{color} 
+\usepackage{siunitx}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[backend=biber,backref=true,style=unsrt,
+style=numeric-comp,block=ragged,firstinits=true]{biblatex}
+\addbibresource{ref-notes.bib}
+\bibliography{ref-notes}
+\graphicspath{{plot_synthesis/} {Feynman/}}
+
+\newcommand{\mastersig}{\ensuremath{\Im{\widehat{\Sigma}^{A,B}(k,E)}}\xspace}
+\newcommand{\chiqw}{\ensuremath{\Im{\chi}(q,\omega)}\xspace}
+
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\title{Condensed Matter II}
+\subtitle{Problem set \#7}
+%\author{}
+\date{Spring 2014}
+
+\begin{document}
+
+\maketitle
+
+\setlength{\unitlength}{1cm}
+%\advance\textwidth by 3cm
+%\advance\hoffset by -1.5cm 
+\advance\textheight by 1cm
+\advance\voffset by -1.5cm
+\setmarginsrb{3cm}{0.5cm}{1.5cm}{1cm}{1cm}{1cm}{1cm}{1cm}
+%\setlength{\parindent}{0cm}%
+
+\pagestyle{plain}
+
+\section{Donor states in Si}
+
+\subsection{Background}
+
+The conduction band of Silicium exhibits six equivalent minima in the
+direction $\Delta$ in the first Brillouin zone. The electronic state
+vectors in such directions are designated by the following symbols:
+
+\begin{itemize}
+\item $\ket{x}$ for the minimum in direction $[100]$
+\item $\ket{y}$ for the minimum in direction $[010]$
+\item $\ket{z}$ for the minimum in direction $[001]$
+\item $\ket{\bar{x}}$ for the minimum in direction $[\bar{1}00]$
+\item $\ket{\bar{y}}$ for the minimum in direction $[0\bar{1}0]$
+\item $\ket{\bar{z}}$ for the minimum in direction $[00\bar{1}]$
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=7cm]{xyzcube.png}
+  \caption{Regular tetrahedron with vertices Si atoms on the a, b, c,
+    d sites. In the middle of the tetrahedron is a donor atom.\label{fig:tetra}}
+\end{figure}
+
+A donor atom is located at the center of a regular tetrahedron as
+indicated in Fig~\ref{fig:tetra}. As a reminder, the symmetry of the
+tetrahedraon is $T_d$, of order 24, with elements:
+
+\begin{itemize}
+\item $E$ (identity)
+\item 8 rotations  $C_3$ about the diagonals of a cube.
+\item 3 rotations $C_2$ about axes $x, y , z$.
+\item 6 improper rotations $S_4$ about axis $x, y , z$ (rotations
+of angle $\pi/2$ followed by a reflection in a plane perpendicular to
+the axis of rotation).
+\item 6 reflections $\sigma_d$ in planes containing one edge and the center of
+  the tetrahedron.
+\end{itemize}
+
+\subsection{Questions}
+
+\begin{enumerate}[label=(\roman*)]
+\item Apply a symmetry operation of each class of the $T_d$ group to the six
+  dimensional vector $\begin{pmatrix}
+\ket{x}\\ 
+\ket{y}\\
+\ket{z}\\
+\ket{\bar{x}}\\
+\ket{\bar{y}}\\
+\ket{\bar{z}}
+\end{pmatrix}$
+\item Use the previous result to establish the character table of the
+  six-dimensional representation $R_6$ of the group $T_d$.
+\item Using the previously established (Cf Problem Set \#3) character
+  table of the $T_d$ group, decompose $R_6$ into its irreducible
+  components.
+\item Verify that the following vector states are bases of the
+  corresponding irreducible representations:
+  \begin {itemize}
+  \item $A_1: \dfrac{\ket{x} + \ket{y} + \ket{z} + \ket{\bar{x}} +
+      \ket{\bar{y}} + \ket{\bar{z}}}{\sqrt{6}} $
+  \item $E: \dfrac{\ket{x} - \ket{y} + \ket{\bar{x}} -
+      \ket{\bar{y}}}{2}$, $\dfrac{\ket{x} + \ket{y} -2 \ket{z} + \ket{\bar{x}} +
+      \ket{\bar{y}} -2 \ket{\bar{z}}}{\sqrt{12}}$
+  \item $T_2: \dfrac{\ket{x} - \ket{\bar{x}}}{\sqrt{2}}$,
+    $\dfrac{\ket{y} - \ket{\bar{y}}}{\sqrt{2}}$, $\dfrac{\ket{z} - \ket{\bar{z}}}{\sqrt{2}}$
+  \end{itemize}
+\item What is the physical significance of the findings of the
+  previous question?
+\end{enumerate}
+
+
+
+%\section
+
+\end{document}
