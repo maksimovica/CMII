@@ -222,80 +222,111 @@
 
     
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}21}]:} \PY{k+kn}{from} \PY{n+nn}{wand.image} \PY{k+kn}{import} \PY{n}{Image} \PY{k}{as} \PY{n}{WImage}
+{\color{incolor}In [{\color{incolor}24}]:} \PY{k+kn}{import} \PY{n+nn}{scipy.constants} \PY{k+kn}{as} \PY{n+nn}{cst}
+         \PY{k+kn}{import} \PY{n+nn}{math}
+         \PY{k+kn}{from} \PY{n+nn}{wand.image} \PY{k+kn}{import} \PY{n}{Image} \PY{k}{as} \PY{n}{WImage}
          \PY{k+kn}{from} \PY{n+nn}{wand.display} \PY{k+kn}{import} \PY{n}{display}
-         \PY{n}{img} \PY{o}{=} \PY{n}{WImage}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{/home/dominique/BTSync/SolidState/Brno/SemiCon/Humlicek/TA\PYZus{}Notes/Donor\PYZus{}States\PYZus{}III\PYZus{}V/1\PYZhy{}s2.0\PYZhy{}S1350449599000201\PYZhy{}main.pdf[3]}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{resolution}\PY{o}{=}\PY{l+m+mi}{400}\PY{p}{)}
-         \PY{k}{print} \PY{n}{img}\PY{o}{.}\PY{n}{size}
-         \PY{k}{print} \PY{n}{img}\PY{o}{.}\PY{n}{format}
-         \PY{n}{img}\PY{o}{.}\PY{n}{resize}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi+il}{595L}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi+il}{842L}\PY{p}{)}
-         \PY{k}{print} \PY{n}{img}\PY{o}{.}\PY{n}{size}
-         \PY{n}{img}
-         \PY{n}{converted} \PY{o}{=} \PY{n}{img}\PY{o}{.}\PY{n}{convert}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{jpeg}\PY{l+s}{\PYZsq{}}\PY{p}{)}
-         \PY{n}{converted}
+         \PY{k+kn}{from} \PY{n+nn}{IPython.display} \PY{k+kn}{import} \PY{n}{HTML}
 \end{Verbatim}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-(3306L, 4678L)
-PDF
-(1190L, 1684L)
-    \end{Verbatim}
-\texttt{\color{outcolor}Out[{\color{outcolor}21}]:}
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{img} \PY{o}{=} \PY{n}{WImage}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{/home/dominique/BTSync/SolidState/Brno/SemiCon/[Peter\PYZus{}Y.\PYZus{}Yu,\PYZus{}Manuel\PYZus{}Cardona]\PYZus{}Fundamentals\PYZus{}of\PYZus{}Semi(BookFi.org).pdf[186]}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                      \PY{n}{resolution}\PY{o}{=}\PY{l+m+mi}{400}\PY{p}{)}
+         \PY{c}{\PYZsh{}print img.size}
+         \PY{c}{\PYZsh{}print img.format}
+         \PY{n}{img}\PY{o}{.}\PY{n}{resize}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi+il}{595L}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi+il}{842L}\PY{p}{)}
+         \PY{c}{\PYZsh{}print img.size}
+         \PY{n}{img}
+         \PY{c}{\PYZsh{}converted = img.convert(\PYZsq{}jpeg\PYZsq{})}
+         \PY{c}{\PYZsh{}converted}
+\end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}15}]:}
     
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{shallow_donors_files/shallow_donors_0_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{shallow_donors_files/shallow_donors_1_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{k+kn}{import} \PY{n+nn}{scipy.constants} \PY{k+kn}{as} \PY{n+nn}{cst}
-        \PY{k+kn}{import} \PY{n+nn}{math}
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{img} \PY{o}{=} \PY{n}{WImage}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{/home/dominique/BTSync/SolidState/Brno/SemiCon/Humlicek/TA\PYZus{}Notes/Donor\PYZus{}States\PYZus{}III\PYZus{}V/1\PYZhy{}s2.0\PYZhy{}S1350449599000201\PYZhy{}main.pdf[3]}\PY{l+s}{\PYZsq{}}\PY{p}{,} 
+                      \PY{n}{resolution}\PY{o}{=}\PY{l+m+mi}{400}\PY{p}{)}
+         \PY{c}{\PYZsh{}print img.size}
+         \PY{c}{\PYZsh{}print img.format}
+         \PY{n}{img}\PY{o}{.}\PY{n}{resize}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi+il}{595L}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{l+m+mi+il}{842L}\PY{p}{)}
+         \PY{c}{\PYZsh{}print img.size}
+         \PY{n}{img}
+         \PY{c}{\PYZsh{}converted = img.convert(\PYZsq{}jpeg\PYZsq{})}
+         \PY{c}{\PYZsh{}converted}
 \end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}10}]:}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{shallow_donors_files/shallow_donors_2_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{r} \PY{o}{=} \PY{l+m+mf}{0.067} \PY{o}{*} \PY{p}{(}\PY{l+m+mf}{1.0}\PY{o}{/}\PY{l+m+mf}{12.5}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{*} \PY{p}{(}\PY{n}{cst}\PY{o}{.}\PY{n}{e}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{4}\PY{o}{*}\PY{n}{cst}\PY{o}{.}\PY{n}{m\PYZus{}e}\PY{o}{/}\PY{p}{(}\PY{l+m+mf}{2.0}\PY{o}{*}\PY{n}{cst}\PY{o}{.}\PY{n}{hbar}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{l+m+mf}{1.0}\PY{o}{/}\PY{p}{(}\PY{l+m+mf}{4.0}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{pi}\PY{o}{*}\PY{n}{cst}\PY{o}{.}\PY{n}{epsilon\PYZus{}0}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
-\end{Verbatim}
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{r}\PY{o}{/}\PY{n}{cst}\PY{o}{.}\PY{n}{e}\PY{o}{*}\PY{l+m+mf}{1000.0}
+{\color{incolor}In [{\color{incolor}25}]:} \PY{n}{HTML}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZlt{}iframe src=http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/basic.html width=700 height=500\PYZgt{}\PYZlt{}/iframe\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
             \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}16}]:} 5.8341209654160515
+{\color{outcolor}Out[{\color{outcolor}25}]:} <IPython.core.display.HTML at 0xab9f5ac>
 \end{Verbatim}
         
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{cst}\PY{o}{.}\PY{n}{epsilon\PYZus{}0}
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{HTML}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZlt{}iframe src=http://www.semiconductors.co.uk/propiiiv5653.htm width=750 height=500\PYZgt{}\PYZlt{}/iframe\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
             \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}8}]:} 8.854187817620389e-12
+{\color{outcolor}Out[{\color{outcolor}26}]:} <IPython.core.display.HTML at 0xab9f82c>
 \end{Verbatim}
         
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{cst}\PY{o}{.}\PY{n}{physical\PYZus{}constants}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Rydberg constant}\PY{l+s}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}27}]:} \PY{n}{HTML}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZlt{}iframe src=http://www.ioffe.ru/SVA/NSM/Semicond/InSb/basic.html width=700 height=500\PYZgt{}\PYZlt{}/iframe\PYZgt{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
             \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}9}]:} 10973731.568539
+{\color{outcolor}Out[{\color{outcolor}27}]:} <IPython.core.display.HTML at 0xab9f8ac>
 \end{Verbatim}
         
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{cst}\PY{o}{.}\PY{n}{physical\PYZus{}constants}\PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{Rydberg constant}\PY{l+s}{\PYZdq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+{\color{incolor}In [{\color{incolor}32}]:} \PY{k}{def} \PY{n+nf}{get\PYZus{}binding\PYZus{}energy}\PY{p}{(}\PY{n}{eff\PYZus{}mass}\PY{p}{,} \PY{n}{epsilon}\PY{p}{)}\PY{p}{:}
+             \PY{k}{return} \PY{n}{eff\PYZus{}mass}\PY{o}{/} \PY{n}{epsilon}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{*} \PY{p}{(}\PY{n}{cst}\PY{o}{.}\PY{n}{e}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{4}\PY{o}{*}\PY{n}{cst}\PY{o}{.}\PY{n}{m\PYZus{}e}\PY{o}{/}\PY{p}{(}\PY{l+m+mf}{2.0}\PY{o}{*}\PY{n}{cst}\PY{o}{.}\PY{n}{hbar}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{l+m+mf}{4.0}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{pi}\PY{o}{*}\PY{n}{cst}\PY{o}{.}\PY{n}{epsilon\PYZus{}0}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{/}\PY{n}{cst}\PY{o}{.}\PY{n}{e}\PY{o}{*}\PY{l+m+mf}{1000.0}
 \end{Verbatim}
 
-            \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}10}]:} 'm\^{}-1'
-\end{Verbatim}
-        
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{cst}\PY{o}{.}\PY{n}{e}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{4}\PY{o}{*}\PY{n}{cst}\PY{o}{.}\PY{n}{m\PYZus{}e}\PY{o}{/}\PY{p}{(}\PY{l+m+mf}{2.0}\PY{o}{*}\PY{n}{cst}\PY{o}{.}\PY{n}{hbar}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}37}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{GaAs binding energy}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{get\PYZus{}binding\PYZus{}energy}\PY{p}{(}\PY{l+m+mf}{0.07}\PY{p}{,} \PY{l+m+mf}{12.5}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{meV}\PY{l+s}{\PYZdq{}}
 \end{Verbatim}
 
-            \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}12}]:} 2.698660275393679e-38
+    \begin{Verbatim}[commandchars=\\\{\}]
+GaAs binding energy 6.09535026237 meV
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}38}]:} \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{InSb binding energy}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{get\PYZus{}binding\PYZus{}energy}\PY{p}{(}\PY{l+m+mf}{0.014}\PY{p}{,} \PY{l+m+mf}{16.8}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{meV}\PY{l+s}{\PYZdq{}}
 \end{Verbatim}
-        
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+InSb binding energy 0.674885543152 meV
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{k+kn}{from} \PY{n+nn}{wand.image} \PY{k+kn}{import} \PY{n}{Image} \PY{k}{as} \PY{n}{WImage}
+        \PY{n}{img} \PY{o}{=} \PY{n}{WImage}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{shallow.pdf}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{resolution}\PY{o}{=}\PY{l+m+mi}{400}\PY{p}{)}
+        \PY{c}{\PYZsh{}print img.size}
+        \PY{n}{img}\PY{o}{.}\PY{n}{resize}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{img}\PY{o}{.}\PY{n}{size}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{img}\PY{o}{.}\PY{n}{size}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+        \PY{n}{img}
+\end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}8}]:}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{shallow_donors_files/shallow_donors_9_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
     \begin{Verbatim}[commandchars=\\\{\}]
 {\color{incolor}In [{\color{incolor}}]:} 
 \end{Verbatim}
