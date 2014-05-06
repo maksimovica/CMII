@@ -1,0 +1,99 @@
+\input{header.tex}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{color} 
+\usepackage{siunitx}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[backend=biber,backref=true,style=unsrt,
+style=numeric-comp,block=ragged,firstinits=true]{biblatex}
+\addbibresource{ref-notes.bib}
+\bibliography{ref-notes}
+\graphicspath{{plot_synthesis/} {Feynman/}}
+
+\newcommand{\mastersig}{\ensuremath{\Im{\widehat{\Sigma}^{A,B}(k,E)}}\xspace}
+\newcommand{\chiqw}{\ensuremath{\Im{\chi}(q,\omega)}\xspace}
+
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\title{Condensed Matter II}
+\subtitle{Problem set \#8}
+%\author{}
+\date{Spring 2014}
+
+\begin{document}
+
+\maketitle
+
+\setlength{\unitlength}{1cm}
+%\advance\textwidth by 3cm
+%\advance\hoffset by -1.5cm 
+\advance\textheight by 1cm
+\advance\voffset by -1.5cm
+\setmarginsrb{3cm}{0.5cm}{1.5cm}{1cm}{1cm}{1cm}{1cm}{1cm}
+%\setlength{\parindent}{0cm}%
+
+\pagestyle{plain}
+
+\section*{Donor impurities in GaAs}
+
+\subsection*{Background}
+
+We consider the direct band gap semiconductor GaAs, with $N_d = 10^{16}.\text{cm}^{-3}$
+hydrogenic donor impurities. The following properties are
+given:
+
+\begin{itemize}
+\item direct band gap: $E_g = 1.40$ eV.
+\item $m^*_e = 0.07 m_0$ for the conduction band effective mass
+\item $m_{hh} = 0.68 m_0$, $m_{lh} = 0.12 m_0$ for the heavy and light
+  holes bands
+\item $\epsilon_{\text{GaAs}} = 15$
+\end{itemize}
+
+\subsection*{Questions}
+
+\subsubsection*{Temperature dependence of the Fermi level}
+
+\begin{enumerate}[label=(\roman*)]
+\item Compute the concentration of intrinsic carriers in the material,
+  and compare it with the concentration of impurities.
+\item Compute the ionization energy $E_d$ of the impurities.
+\item Establish the expression of the density of carriers, as a
+  function of $T, E_d, N_d, E_F$.
+\item From the previous expression, deduce the temperature dependent
+  expression of $E_F(T)$. Compute $E_F(T)$ fot $T=300$K and $T=30$K.
+\end{enumerate}
+
+\subsubsection*{Transport properties}
+
+\begin{enumerate}[label=(\roman*)]
+\item Compute the electron and hole carrier concentrations at romm
+  temperature and at $30$K.
+\item What is the critical doping, above which the an impurity band
+  would appear as a result of the presence of substitional
+  impurities in GaAs? What is the main difference between the impurity
+  band scenario and the the isolated impurity scenario?
+\end{enumerate}
+
+
+
+%\section
+
+\end{document}
