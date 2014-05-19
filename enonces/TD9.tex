@@ -1,0 +1,106 @@
+\input{header.tex}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{color} 
+\usepackage{siunitx}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[backend=biber,backref=true,style=unsrt,
+style=numeric-comp,block=ragged,firstinits=true]{biblatex}
+\addbibresource{ref-notes.bib}
+\bibliography{ref-notes}
+\graphicspath{{plot_synthesis/} {Feynman/}}
+
+\newcommand{\mastersig}{\ensuremath{\Im{\widehat{\Sigma}^{A,B}(k,E)}}\xspace}
+\newcommand{\chiqw}{\ensuremath{\Im{\chi}(q,\omega)}\xspace}
+
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+\title{Condensed Matter II}
+\subtitle{Problem set \#9}
+%\author{}
+\date{Spring 2014}
+
+\begin{document}
+
+\maketitle
+
+\setlength{\unitlength}{1cm}
+%\advance\textwidth by 3cm
+%\advance\hoffset by -1.5cm 
+\advance\textheight by 1cm
+\advance\voffset by -1.5cm
+\setmarginsrb{3cm}{0.5cm}{1.5cm}{1cm}{1cm}{1cm}{1cm}{1cm}
+%\setlength{\parindent}{0cm}%
+
+\pagestyle{plain}
+
+\section*{Hall effect}
+
+\subsection*{Isotropic semiconductor}
+
+In this section, we study the Hall coefficient in a
+semiconductor in the presence of both hole and electron charge carriers:
+
+\begin{itemize}
+\item electron density $n_e$
+\item hole density $n_h$
+\item electron mobility $\mu_e$
+\item hole mobility $\mu_h$
+\end{itemize}
+
+\begin{enumerate}[label=(\roman*)]
+\item Assuming $B=0.1$ T and $m^* = m_0$, What is the critical relaxation
+  time $\tau_c$ below which the weak magnetic field approximation is valid?
+\item Assuming $\mu_e = 1000 \text{ cm}^2/V.s$, is this approximation valid?
+\item Derive the expression of the Hall coefficient in the material.
+\end{enumerate}
+
+\subsection*{Anisotropic case}
+
+In this section a single kind of charge carrieres (electrons) is
+present, but its effective mass tensor is
+anisotropic.
+
+Consider a degenerate
+n-type material with $10^{17}$ electron carriers per cm$^3$ in the
+conduction band. The electrons occupy conduction states associated
+with the 6 electron carrier pockets of
+Si. Such carrier pockets are characterized by the mass components
+$m_t = 0.19 m_0$ and $m_l = 0.98 m_0$.
+
+Assume $\vec{B}$ is along the $z$ axis, $\vec{j}$ is along the $x$
+axis, and the relaxation time is $\tau$.
+
+\begin{enumerate}[label=(\roman*)]
+\item By analogy with the isotropic case derivation, establish the
+  expression of the contribution of one electron pocket to the
+  magnetoconductivity tensor.
+\item Express the Hall coefficient as a function of the components of
+  the magnetoresistance tensor, and B.
+\item Assume the weak field approximation is valid, and deduce the
+  expression of the Hall coefficient as a function of the effective
+  masses, and of the isotropic Hall coefficient.
+\item Derive the expression of the transverse magnetoresistance, and
+  comment on its magnitude.
+\end{enumerate}
+
+%\section
+
+\end{document}
