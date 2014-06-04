@@ -84,6 +84,69 @@ electrons in a 1D solid.
   in terms of quantities in the diagram.
 \end{enumerate}
 
+\section{Carrier densities in a semiconducting material}
+
+\subsection{Density of states in 3D}\label{section:DOS}
+
+In this section, we establish a general expression for $g_n(E)$, the density of levels
+per unit volume (further called "density of levels" or "density of
+states") as a function of energy, for a given band $n$. The band dispersion is noted
+$E_n(k)$.
+
+\begin{enumerate}[label=(\roman*)]
+\item Derive the general expression $$g_n(E) = \int\int_{S_n(E)} \dfrac{dS}{4
+    \pi^3} \dfrac{1}{\abs{\nabla_k E_n(k)}}$$
+\item Show that in the particular case of a system at zero
+  temperature, with a parabolic band with effective mass $m^{*}$, and
+  Fermi energy $E_F$, the density of electrons is: $$n_e =
+  \dfrac{1}{3 \pi^2} \biggl[\dfrac{2 m^{*} (E_F-E_c)}{ \hbar^2} \biggr]^{3/2}$$
+where $E_c$ is the energy at the bottom of the considered parabolic band.
+\end{enumerate}
+
+\subsection{Filling of levels in a semiconductor - $T=0$K}
+
+In this section, we consider the direct band gap semiconductor GaAs,
+with a band gap $E_g = 1.43$eV at 300K, and a second higher-lying
+conduction band extremum at the $X$-point in the Brillouin zone,
+located at $E_{gX} = 0.35$eV above the $\Gamma$ point conduction band
+minimum (see Fig.~\ref{fig:SC_bands}). The effective masses are $m_e(\Gamma) =
+0.065 m_0$ for the $\Gamma$-point electrons, $m_l(X) =
+1.2 m_0$ and $m_t(X) = 0.3 m_0$ for the $X$-point electrons. All bands
+are assumed to be parabolic.
+
+In this section, we consider the system at
+zero temperature, without doping, and assume we can externally shift
+its Fermi level.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=7cm]{SC_bands.pdf}
+  \caption{Simplified band structure of GaAs.\label{fig:SC_bands}}
+\end{figure}
+
+The Brillouin zone, with the relevant symmetries and location of X
+point, is illustrated in Fig~\ref{fig:SC_symmetry}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=7cm]{SC_symmetry.pdf}
+  \caption{Brillouin zone representation of GaAs.\label{fig:SC_symmetry}}
+\end{figure}
+
+\begin{enumerate}[label=(\roman*)]
+\item What value does $E_F$ need to reach in order for the electron
+  concentration at the $X$ point and the electron concentration at the
+  $\Gamma$ point to be equal? What is then the total density of
+  electrons in the conduction band? Do not forget to account for the
+  symmetry of the system, and use $m^{*} = (m_l m_t^2)^{1/3}$ at the
+  $X$-point.
+\item If the $X$-point electron pocket is to stay empty, what is the
+  highest possible electron density at the $\Gamma$-point?
+  Compare such electron density with the electron density the
+  $\Gamma$-point in the previous case.
+\item What is the hole concentration in both situations considered above?
+\end{enumerate}
+
 \section{Donor states in Ge}
 
 \subsection{Introduction}
