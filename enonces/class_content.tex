@@ -1,0 +1,75 @@
+\input{header.tex}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{vmargin}
+\usepackage{indentfirst}
+\usepackage{titling}
+\usepackage{color} 
+\usepackage{siunitx}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage[backend=biber,backref=true,style=unsrt,
+style=numeric-comp,block=ragged,firstinits=true]{biblatex}
+
+%macro for column vector notation
+\makeatletter
+\newcommand{\Spvek}[2][r]{%
+  \gdef\@VORNE{1}
+  \left(\hskip-\arraycolsep%
+    \begin{array}{#1}\vekSp@lten{#2}\end{array}%
+  \hskip-\arraycolsep\right)}
+
+\def\vekSp@lten#1{\xvekSp@lten#1;vekL@stLine;}
+\def\vekL@stLine{vekL@stLine}
+\def\xvekSp@lten#1;{\def\temp{#1}%
+  \ifx\temp\vekL@stLine
+  \else
+    \ifnum\@VORNE=1\gdef\@VORNE{0}
+    \else\@arraycr\fi%
+    #1%
+    \expandafter\xvekSp@lten
+  \fi}
+\makeatother
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+
+\title{Condensed Matter Physics I}
+\subtitle{Content ideas for class exercise sessions}
+\date{Automn 2014}
+
+\begin{document}
+
+
+\maketitle
+
+\setlength{\unitlength}{1cm}
+%\advance\textwidth by 3cm
+%\advance\hoffset by -1.5cm 
+\advance\textheight by 1cm
+\advance\voffset by -1.5cm
+\setmarginsrb{3cm}{0.5cm}{1.5cm}{1cm}{1cm}{1cm}{1cm}{1cm}
+%\setlength{\parindent}{0cm}%
+
+\pagestyle{plain}
+
+\section{Band calculation in empty lattice}
+
+Time allowance 2 hours.
+
+\begin{itemize}
+\item Pb set \#2 from ETH, CMI folder.
+\end{itemize}
+
+\end{document}

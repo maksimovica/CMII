@@ -1,0 +1,665 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{Free\_electrons\_in\_Na}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    The following document is available for
+consultation/download/modification at
+
+http://nbviewer.ipython.org/github/dombrno/CMII/blob/master/notebooks/Free\_electrons\_in\_Na.ipynb?create=1
+
+
+    \section{Qualitative study}
+
+
+
+    \subsection{\emph{With the help of the computed band structure of Na, suggest what
+the structure of the empty BCC lattice must look like (assuming
+isotropic effective mass $m_0$)}}
+
+
+    The empty BCC lattice is obtained when setting $V \equiv 0$. The effect
+of the weak finite potential $V$ is to lift the accidental band
+degeneracies at $k=0$ and at the zone boundaries (high symmetry points)
+in the Brillouin zone. Such splittings vary for the various bands and at
+different high symmetry points. In order to obtain the empty lattice
+structure from the real structure, one needs to merge the bands at the
+places where the effect of the finite value of $V$ is to split them. The
+final result remains close to the computed band structure, because the
+nearly-free electron approximation is quite justified in the case of Na.
+
+
+    \subsection{\emph{How high above the bottom of the conduction band is the Fermi
+energy located in this model?}}
+
+
+    For the alkali metals, the nearly-free electron approximation is valid.
+This leads to a nearly spherical Fermi surface, and small band gaps. The
+crystal structure for the alkali metals is body centered cubic (BCC).
+
+In the figure representing the computed band structure of Na, the lowest
+band is the 3s conduction band. The filled valence bands lie much lower
+in energy and are not represented. For the case of Na, the 3s conduction
+band is very nearly free electron--like and the dispersion relations are
+closely isotropic. The isotropic effective mass model with parameter
+$m_0$ is therefore a very good approximation.
+
+Since Na has a the {[}Ne{]}$3s^1$ electronic structure, the Fermi level
+is determined so that the 3s band is exactly half--occupied. Therefore
+the radius of the Fermi surface $k_F$ satisfies the relation
+\[\dfrac{4 \pi k_F^3}{3}=\dfrac{1}{2}*2*\left(\dfrac{2\pi}{a}\right)^3 \Rightarrow k_F = \left(\dfrac{3}{4\pi}\right)^{1/3}\left(\dfrac{2\pi}{a}\right) \simeq 0.62 \left(\dfrac{2\pi}{a}\right)\]
+
+The shortest distance from $\Gamma$ to a Brillouin zone face is
+$\Gamma \text{N} = \left(\dfrac{2\pi}{a}\right) \sqrt{(1/2)^2+(1/2)^2+0^2} \simeq 0.71 \left(\dfrac{2\pi}{a}\right)$
+
+This indicates that the Fermi sphere remains a safe distance away from
+the zone boundary, where only narrow band gaps distort the otherwise
+quasi free-electron like dispersion. It is therefore quite a safe
+approximation to consider a quadratic dispersion with effective mass
+$m_0$ for all electrons of Na, and a spherical Fermi surface. This is
+also visible in the position of the $E_F$ line in the computed band
+structure, which lies safely below the lowest lying band gap at the N
+point.
+
+The energy $E_F$ thus verifies
+$E_F \simeq \dfrac{\hbar^2 k_F^2}{2m_0} = \dfrac{\hbar^2(3/4\pi)^{2/3}}{2m_0}\left(\dfrac{2\pi}{a}\right)^2$
+
+Using:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  $a=0.423 \times 10^{-9}$m
+\item
+  $m_0 = 0.97 \cdot m_e = 0.97 \cdot 9.1 \times 10^{-31}$kg
+\item
+  $\hbar = 1.05 \times 10^{-34}\text{m}^2$.kg/s
+\end{enumerate}
+
+we get
+$E_F \simeq 5.2 \times 10^{-19}\text{J} = 3.2 \text{eV} = 0.24 \text{Ry}$
+
+Ref:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Ashcroft Mermin, Ch. 15
+\item
+  Pastori-Paravicini, p.~223 for effective masses.
+\end{enumerate}
+
+
+    \subsection{\emph{Justify that Na may be considered ``the simplest of the simple
+metals''}}
+
+
+    As illustrated above, the various effects arising from the periodic
+potential of the lattice materialize in the most simple manner in Na:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  The effective mass is isotropic
+\item
+  The effective mass is very close the the rest mass of a free electron
+\item
+  The Fermi sphere does not get close to the band gaps.
+\item
+  The width of the band gaps is small compared to bandwidth
+\item
+  For all practical purposes, the dispersion relation of the electrons
+  is therefore identical to the free electron dispersion relation
+\end{enumerate}
+
+In other terms, it is not possible to find a real material which
+deviates less from the free electron gas case, than does Na. As a
+consequence, it is the most simple to model.
+
+
+    \section{\emph{Quantitative study}}
+
+
+
+    \subsection{General expression of energy}
+
+
+    For a 3D crystal, the free electron energies and wave functions can be
+expressed in the following way:
+
+Decompose the plane wave vector as a sum of Bloch wave vector and
+reciprocal lattice vector, where the Bloch wave vector $k$ is restricted
+to the first Brillouin zone. The reciprocal lattice vectors are given by
+$K_l =l_1 b_1 + l_2 b_2 + l_2 b_3$ where $(l_1, l_2, l_3)$ are integers
+and $b_i$ are primitive translations of the reciprocal lattice. The
+plane wave function is thus given by
+$\Psi_l(k, r)=e^{ik\cdot r}e^{iK_l\cdot r}$, where the second factor has
+the periodicity of the lattice since $e^{iK_l\cdot R} = 1$ for any
+vector $R$ of the direct lattice, i.e.~this form respects Bloch's
+theorem.
+
+The energy of such wave function is then given by
+$E_l(k)=\dfrac{\hbar^2}{2m}(k+K_l)^2$. It follows that each band is
+labelled by $l \equiv (l_1, l_2, l_3)$, with the corresponding wave
+function and energy expression above.
+
+
+    \subsubsection{The Body Centered Cubic lattice}
+
+
+    The primitive translations of the reciprocal lattice are:
+$b_1 = \dfrac{2\pi}{a}(x+z)$, $b_2 = \dfrac{2\pi}{a}(-x+y)$,
+$b_3 = \dfrac{2\pi}{a}(-y+z)$.
+
+A general reciprocal lattice vector is thus given by
+$G_{h_1 h_2 h_3 } = \dfrac{2\pi}{a}[(h_1-h_2)x + (h_2-h_3)y + (h_1+h_3)z]$.
+
+The 12 shortest reciprocal lattice vectors are
+$\pm \dfrac{2\pi}{a}(x \pm y)$, $\pm \dfrac{2\pi}{a}(y \pm z)$,
+$\pm \dfrac{2\pi}{a}(x \pm z)$
+
+The empty lattice energy bands can be written as
+$E_{l_1 l_2 l_3}= \dfrac{2\pi^2 \hbar^2}{ma^2}[(l_1 + \xi)^2+(l_2 + \eta)^2+(l_3 + \zeta)^2]$
+with $l_1=h_1-h_2$, $l_2=h_2-h_3$, $l_3 = h_1+h_3$ and $h_i$ an integer,
+and $k=\dfrac{2\pi}{a}(\xi, \eta, \zeta)$ in the first Brillouin zone.
+
+The special points have the following coordinates:
+
+$H= \dfrac{2\pi}{a} (1, 0, 0)$, $P= \dfrac{2\pi}{a} (1/2, 1/2, 1/2)$,
+$N= \dfrac{2\pi}{a} (1/2, 1/2, 0)$
+
+With this, the energy levels at the special points may be written as:
+
+$E_{h_1 h_2 h_2}(\Gamma) = (h_1 - h_2)^2 + (h_2-h_3)^2 + (h_1+h_3)^2$
+
+$E_{h_1 h_2 h_2}(H) = (h_1 - h_2 + 1)^2 + (h_2-h_3)^2 + (h_1+h_3)^2$
+
+$E_{h_1 h_2 h_2}(P) = (h_1 - h_2 + \dfrac{1}{2})^2 + (h_2-h_3+\dfrac{1}{2})^2 + (h_1+h_3+\dfrac{1}{2})^2$
+
+$E_{h_1 h_2 h_2}(N) = (h_1 - h_2 + \dfrac{1}{2})^2 + (h_2-h_3+\dfrac{1}{2})^2 + (h_1+h_3)^2$
+
+These expressions allow us to determine the authorized values of the
+energy levels at all special points, as well as determine their
+degeneracy. Such points should then be joined by parabolic branches in
+order to build the empty lattice band structure. For a detailed look at
+the result, please check \textbf{Dresselhaus, Fig.12.6.a., p293}.
+
+Refs:
+
+\textbf{Dresselhaus, Chapter 12}
+
+\textbf{Pengcheng Dai, Lecture notes, Physics 671, University of
+Tennessee, Knoxville}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{k+kn}{from} \PY{n+nn}{IPython.display} \PY{k+kn}{import} \PY{n}{Image}
+        \PY{n}{i} \PY{o}{=} \PY{n}{Image}\PY{p}{(}\PY{n}{filename}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{empty\PYZus{}BCC\PYZus{}bands.png}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{i}
+\end{Verbatim}
+\texttt{\color{outcolor}Out[{\color{outcolor}3}]:}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Free_electrons_in_Na_files/Free_electrons_in_Na_13_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+
+    \subsubsection{Group of a vector $k$}
+
+
+    The group of symmetry operations which leave the lattice invariant also
+leaves the reciprocal lattice invariant. Suppose we know some wave
+function $\Psi_k$ . A rotation or reflection operation of the point
+group acting on $\Psi_k$ will give the same result as the rotation or
+reflection of $k$ itself, that is
+$R\Psi_k(x) = \Psi_{Rk}(x) = \Psi_k(R^{−1}x)$. Here we used the fact
+that applying the same orthogonal transformation to both vectors in a
+scalar product does not change the value of the product, for example
+$k \cdot R^{−1}r = Rk \cdot RR^{−1}r = Rk \cdot r$. By applying every
+symmetry of the group to a wave vector k, we generate the star of k. For
+the BCC lattice, all operations leave $\Gamma$ invariant so $\Gamma$ is
+its own star. For a general point k, there will be $g$ (where $g$ is the
+order of the group of the crystal) points in the star of k.
+
+The group (or subgroup of the original point group) of rotations and
+reflections that transform $k$ into itself or into a new $k$ vector
+separated from the original $k$ point by a reciprocal lattice vector,
+are said to belong to the group of the wave vector $k$.
+
+When the empty lattice bands are calculated, there are often a number of
+degenerate bands at points of high symmetry like the $\Gamma$ point, or
+the X point. Because the operations of the group of the wave vector
+$\Gamma$ (or X) leave this point invariant, one can construct linear
+combinations of these degenerate states that belong to representations
+of the group of the wave vector $\Gamma$ (or X etc.). Once these linear
+combinations are built and the corresponding representation identified,
+one can infer what degeneracies will be lifted by the introduction of a
+finite crystal potential.
+
+
+    \subsubsection{Lifting degeneracies: finite potential}
+
+
+    \textbf{Th. on matrix elements}: Matrix elements of any operator which
+is invariant under all the operations of a group are zero between
+functions belonging to different IR's of the group. Matrix elements are
+also zero between functions belonging to different rows of the same
+representation.
+
+As a consequence, if the degenerate states are classified according to
+the IR's of the group of the wave vector, many of the degenerate states
+will belong to different IR's and therefore the off-diagonal matrix
+elements of $V(r)$ between them will vanish. The matrix of $V(r)$ will
+acquire a block form, with the dimension of each block giving the new
+degeneracy level of the split energy levels. This lets one give a
+praticularly simple form to the secular equation, which allows an easier
+computation of the energy levels.
+
+The IR to which a direction of the crystal belongs also determines which
+lines can or cannot cross in the band structure profile: If they belong
+to the same IR, the are coupled by the potential, and therefore cannot
+cross. If they belong to different IRs, they may cross. Note such an
+interesting occurence in \textbf{Fig. 12.6. of Dresselhaus, 293}, where
+we clearly see the two $F1$ lines repelling each other, while $F_1$ and
+$F_3$ have no problem crossing each other.
+
+Following the previous calculation, it is in this way possible to
+identify to which IR each wave function belongs, and thus to name each
+point and branch, as is done in the complete computed band structure by
+Ching and Callaway.
+
+
+    \subsection{Result of analytical computation of bands:}
+
+
+    $E_{h_1 h_2 h_2}(\Gamma) = (h_1 - h_2)^2 + (h_2-h_3)^2 + (h_1+h_3)^2$
+
+$E_{h_1 h_2 h_2}(H) = (h_1 - h_2 + 1)^2 + (h_2-h_3)^2 + (h_1+h_3)^2$
+
+$E_{h_1 h_2 h_2}(P) = (h_1 - h_2 + \dfrac{1}{2})^2 + (h_2-h_3+\dfrac{1}{2})^2 + (h_1+h_3+\dfrac{1}{2})^2$
+
+$E_{h_1 h_2 h_2}(N) = (h_1 - h_2 + \dfrac{1}{2})^2 + (h_2-h_3+\dfrac{1}{2})^2 + (h_1+h_3)^2$
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+         \PY{c}{\PYZsh{}from pylab import figure, xticks, yticks}
+         \PY{c}{\PYZsh{}import pylab}
+         \PY{k+kn}{from} \PY{n+nn}{IPython.display} \PY{k+kn}{import} \PY{n}{display}\PY{p}{,} \PY{n}{Math}\PY{p}{,} \PY{n}{Latex}
+         
+         \PY{n}{special\PYZus{}points} \PY{o}{=} \PY{p}{[}\PY{l+s}{\PYZdq{}}\PY{l+s}{G}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{H}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{P}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{N}\PY{l+s}{\PYZdq{}}\PY{p}{]}
+         
+         \PY{k}{def} \PY{n+nf}{get\PYZus{}energy}\PY{p}{(}\PY{n}{point}\PY{p}{,} \PY{n}{coords}\PY{p}{)}\PY{p}{:}
+             \PY{k}{if} \PY{n}{point} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{G}\PY{l+s}{\PYZdq{}}\PY{p}{:}
+                 \PY{k}{return} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+             \PY{k}{elif} \PY{n}{point} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{H}\PY{l+s}{\PYZdq{}}\PY{p}{:}
+                 \PY{k}{return} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{+}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+             \PY{k}{elif} \PY{n}{point} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{P}\PY{l+s}{\PYZdq{}}\PY{p}{:}
+                 \PY{k}{return} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{+}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{+}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{+}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+             \PY{k}{elif} \PY{n}{point} \PY{o}{==} \PY{l+s}{\PYZdq{}}\PY{l+s}{N}\PY{l+s}{\PYZdq{}}\PY{p}{:}
+                 \PY{k}{return} \PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{+}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{+}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{p}{(}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{n}{coords}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{ERROR \PYZhy{} invalid point requested: }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{point}
+         
+         \PY{c}{\PYZsh{}recursive backtracking in order to get the valid reciprocal lattice points}
+         \PY{k}{def} \PY{n+nf}{get\PYZus{}next}\PY{p}{(}\PY{n}{cand}\PY{p}{)}\PY{p}{:}
+             \PY{n}{out} \PY{o}{=} \PY{p}{[}\PY{n}{elem} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{cand}\PY{p}{]}
+             \PY{k}{if} \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{==}\PY{l+m+mi}{3}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{==}\PY{l+m+mi}{3}\PY{p}{:}
+                     \PY{k}{if} \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{==}\PY{l+m+mi}{3}\PY{p}{:}
+                         \PY{k}{return} \PY{n+nb+bp}{None}
+                     \PY{k}{else}\PY{p}{:}
+                         \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+                         \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}
+                         \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+                     \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}
+             \PY{k}{else}\PY{p}{:}
+                 \PY{n}{out}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+             \PY{k}{return} \PY{n}{out}
+         
+         \PY{n}{h\PYZus{}list}\PY{o}{=}\PY{p}{[}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}\PY{p}{,}\PY{o}{\PYZhy{}}\PY{l+m+mi}{3}\PY{p}{]}\PY{p}{]}
+         \PY{n}{cand} \PY{o}{=} \PY{n}{get\PYZus{}next}\PY{p}{(}\PY{n}{h\PYZus{}list}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         \PY{k}{while} \PY{n}{cand} \PY{o}{!=} \PY{n+nb+bp}{None}\PY{p}{:}
+             \PY{n}{h\PYZus{}list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{p}{[}\PY{n}{elem} \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{cand}\PY{p}{]}\PY{p}{)}
+             \PY{n}{cand} \PY{o}{=} \PY{n}{get\PYZus{}next}\PY{p}{(}\PY{n}{h\PYZus{}list}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{all\PYZus{}energies} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+         \PY{n}{all\PYZus{}occurences} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+         
+         \PY{c}{\PYZsh{}build the dictionnaries containing possible energy levels}
+         \PY{c}{\PYZsh{}and their degeneracy}
+         \PY{k}{for} \PY{n}{point} \PY{o+ow}{in} \PY{n}{special\PYZus{}points}\PY{p}{:}
+             \PY{n}{all\PYZus{}energies}\PY{p}{[}\PY{n}{point}\PY{p}{]}\PY{o}{=}\PY{p}{[}\PY{p}{]}
+             \PY{k}{for} \PY{n}{elem} \PY{o+ow}{in} \PY{n}{h\PYZus{}list}\PY{p}{:}
+                 \PY{n}{tt} \PY{o}{=} \PY{n}{get\PYZus{}energy}\PY{p}{(}\PY{n}{point}\PY{p}{,} \PY{n}{elem}\PY{p}{)}
+                 \PY{n}{all\PYZus{}energies}\PY{p}{[}\PY{n}{point}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{tt}\PY{p}{)}
+                 \PY{k}{if} \PY{p}{(}\PY{n}{point}\PY{p}{,} \PY{n}{tt}\PY{p}{)} \PY{o+ow}{in} \PY{n}{all\PYZus{}occurences}\PY{p}{:}
+                     \PY{n}{all\PYZus{}occurences}\PY{p}{[}\PY{p}{(}\PY{n}{point}\PY{p}{,} \PY{n}{tt}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{elem}\PY{p}{)}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{n}{all\PYZus{}occurences}\PY{p}{[}\PY{p}{(}\PY{n}{point}\PY{p}{,} \PY{n}{tt}\PY{p}{)}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{n}{elem}\PY{p}{]}
+         
+         
+         \PY{c}{\PYZsh{}display(Math(r\PYZsq{}F(k) = \PYZbs{}int\PYZus{}\PYZob{}\PYZhy{}\PYZbs{}infty\PYZcb{}\PYZca{}\PYZob{}\PYZbs{}infty\PYZcb{} f(x) e\PYZca{}\PYZob{}2\PYZbs{}pi i k\PYZcb{} dx\PYZsq{}))}
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+         \PY{n}{display}\PY{p}{(}\PY{n}{Latex}\PY{p}{(}\PY{l+s}{r\PYZsq{}}\PY{l+s}{Energy levels per special point, in units of \PYZdl{}(}\PY{l+s}{\PYZbs{}}\PY{l+s}{hbar\PYZca{}2/2m)(2}\PY{l+s}{\PYZbs{}}\PY{l+s}{pi/a)\PYZca{}2\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+         \PY{k}{for} \PY{n}{point} \PY{o+ow}{in} \PY{n}{special\PYZus{}points}\PY{p}{:}
+             \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{point: }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{point}
+             \PY{n}{valid\PYZus{}energies} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{all\PYZus{}energies}\PY{p}{[}\PY{n}{point}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+             \PY{n}{valid\PYZus{}energies}\PY{o}{.}\PY{n}{sort}\PY{p}{(}\PY{p}{)}
+             \PY{k}{for} \PY{n}{e} \PY{o+ow}{in} \PY{n}{valid\PYZus{}energies}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{e}\PY{o}{\PYZlt{}}\PY{o}{=}\PY{l+m+mi}{9}\PY{p}{:}
+                     \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{E = }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{e}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{; degeneracy: }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{all\PYZus{}energies}\PY{p}{[}\PY{n}{point}\PY{p}{]}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{n}{e}\PY{p}{)}
+         
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+                  
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{A few examples of degeneracy (h1, h2, h3 triplets associated with a special point/energy couple)}\PY{l+s}{\PYZdq{}}
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{point N, E=1.5: }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{all\PYZus{}occurences}\PY{p}{[}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{N}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{]}
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s}{point G, E=2: }\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{n}{all\PYZus{}occurences}\PY{p}{[}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{G}\PY{l+s}{\PYZdq{}}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{]}
+         \PY{k}{print} \PY{l+s}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    Energy levels per special point, in units of $(\hbar^2/2m)(2\pi/a)^2$
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+point:  G
+E =  0 ; degeneracy:  1
+E =  2 ; degeneracy:  12
+E =  4 ; degeneracy:  6
+E =  6 ; degeneracy:  24
+E =  8 ; degeneracy:  12
+point:  H
+E =  1.0 ; degeneracy:  6
+E =  3.0 ; degeneracy:  8
+E =  5.0 ; degeneracy:  24
+E =  9.0 ; degeneracy:  30
+point:  P
+E =  0.75 ; degeneracy:  4
+E =  2.75 ; degeneracy:  12
+E =  4.75 ; degeneracy:  12
+E =  6.75 ; degeneracy:  16
+E =  8.75 ; degeneracy:  24
+point:  N
+E =  0.5 ; degeneracy:  2
+E =  1.5 ; degeneracy:  4
+E =  2.5 ; degeneracy:  4
+E =  3.5 ; degeneracy:  8
+E =  4.5 ; degeneracy:  6
+E =  5.5 ; degeneracy:  4
+E =  6.5 ; degeneracy:  12
+E =  7.5 ; degeneracy:  8
+E =  8.5 ; degeneracy:  8
+
+
+A few examples of degeneracy (h1, h2, h3 triplets associated with a special point/energy couple)
+point N, E=1.5:  [[-1, -1, 0], [-1, 0, 0], [0, 0, 1], [0, 1, 1]]
+point G, E=2:  [[-1, -1, 0], [-1, 0, 0], [-1, 0, 1], [0, -1, -1], [0, -1, 0], [0, 0, -1], [0, 0, 1], [0, 1, 0], [0, 1, 1], [1, 0, -1], [1, 0, 0], [1, 1, 0]]
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}56}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+         
+         \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{6}\PY{o}{*}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         \PY{n}{ymin} \PY{o}{=} \PY{l+m+mi}{0}
+         \PY{n}{ymax} \PY{o}{=} \PY{l+m+mi}{3}
+         \PY{n}{xmin} \PY{o}{=} \PY{l+m+mi}{0}
+         \PY{n}{xmax} \PY{o}{=} \PY{l+m+mi}{1}
+         \PY{n}{x\PYZus{}values} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{n}{num}\PY{o}{=}\PY{l+m+mi}{100}\PY{p}{)}
+         \PY{n}{titles} \PY{o}{=} \PY{p}{[}\PY{l+s}{r\PYZsq{}}\PY{l+s}{H \PYZhy{} \PYZdl{}}\PY{l+s}{\PYZbs{}}\PY{l+s}{Gamma\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{r\PYZsq{}}\PY{l+s}{\PYZdl{}}\PY{l+s}{\PYZbs{}}\PY{l+s}{Gamma\PYZdl{} \PYZhy{} N}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{r\PYZsq{}}\PY{l+s}{N\PYZhy{}P}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+         
+         \PY{n}{starts}\PY{o}{=}\PY{p}{[}\PY{p}{[}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mf}{3.5}\PY{p}{)}\PY{p}{]}\PY{p}{]}\PY{p}{]}
+         \PY{n}{ends}\PY{o}{=}\PY{p}{[}\PY{p}{[}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{3.5}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{4.5}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{]}\PY{p}{]}\PY{p}{,}\PY{p}{[}\PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{0.75}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{0.75}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{2.75}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{2.75}\PY{p}{)}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mf}{2.75}\PY{p}{)}\PY{p}{]}\PY{p}{]}\PY{p}{]}
+         
+         \PY{k}{for} \PY{n}{plot\PYZus{}idx} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{:}
+             \PY{n}{axes} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{+}\PY{n}{plot\PYZus{}idx}\PY{p}{)}
+             \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{a} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{starts}\PY{p}{[}\PY{n}{plot\PYZus{}idx}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{for} \PY{n}{b\PYZus{}elem} \PY{o+ow}{in} \PY{n}{ends}\PY{p}{[}\PY{n}{plot\PYZus{}idx}\PY{p}{]}\PY{p}{[}\PY{n}{idx}\PY{p}{]}\PY{p}{:}
+                     \PY{k}{for} \PY{n}{a\PYZus{}elem} \PY{o+ow}{in} \PY{n}{a}\PY{p}{:}
+                         \PY{n}{axes}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x\PYZus{}values}\PY{p}{,} \PY{p}{[}\PY{n}{a\PYZus{}elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{+}\PY{p}{(}\PY{n}{b\PYZus{}elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{a\PYZus{}elem}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{n}{zz} \PY{k}{for} \PY{n}{zz} \PY{o+ow}{in} \PY{n}{x\PYZus{}values}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{k}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+             \PY{c}{\PYZsh{}axes.set\PYZus{}xlabel(\PYZsq{}\PYZdl{}k\PYZdl{}(Angstrom)\PYZsq{}, fontsize=18)}
+             \PY{c}{\PYZsh{}axes.set\PYZus{}ylabel(\PYZsq{}\PYZdl{}\PYZbs{}omega\PYZdl{} (meV)\PYZsq{}, fontsize=18)}
+             \PY{n}{axes}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{n}{titles}\PY{p}{[}\PY{n}{plot\PYZus{}idx}\PY{p}{]}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+             \PY{c}{\PYZsh{}axes.legend(loc=2) \PYZsh{} upper left corner}
+             \PY{n}{axes}\PY{o}{.}\PY{n}{set\PYZus{}yticks}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{n}{ymin}\PY{p}{,}\PY{n}{ymax}\PY{p}{,}\PY{l+m+mi}{1}\PY{o}{+}\PY{n}{ymax}\PY{o}{\PYZhy{}}\PY{n}{ymin}\PY{p}{,}\PY{n}{endpoint}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}\PY{p}{)}
+             \PY{n}{axes}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+             \PY{n}{axes}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{p}{[}\PY{n}{ymin}\PY{p}{,}\PY{n}{ymax}\PY{p}{]}\PY{p}{)}
+             \PY{n}{axes}\PY{o}{.}\PY{n}{set\PYZus{}xlim}\PY{p}{(}\PY{p}{[}\PY{n}{xmin}\PY{p}{,}\PY{n}{xmax}\PY{p}{]}\PY{p}{)}
+             \PY{n}{axes}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{n+nb+bp}{True}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{Free_electrons_in_Na_files/Free_electrons_in_Na_21_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
